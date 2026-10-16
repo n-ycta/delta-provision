@@ -1,0 +1,19 @@
+{
+  "name": "delta-provision",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Headless Delta provision service",
+  "license": "Apache-2.0",
+  "scripts": {
+    "start": "node server/main.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "zod": "^3.23.8",
+    "ssh2": "^1.17.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

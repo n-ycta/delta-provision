@@ -1,0 +1,2 @@
+import{runtime,owner}from'./runtime.mjs';import{SSHOnboarding,sshHandlers}from'./ssh-onboarding.mjs';
+await runtime(async client=>{if(!process.env.DELTA_HOME)throw Error('DELTA_HOME required');const service=await new SSHOnboarding(process.env.DELTA_HOME,client).init();return{handlers:{...sshHandlers(service),'provision.connections':async(_a,c)=>{owner(c);return service.connections()},'provision.remove':async(a,c)=>{owner(c);return service.remove(a.id)}}}});
